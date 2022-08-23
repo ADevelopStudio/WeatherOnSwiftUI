@@ -47,7 +47,7 @@ struct ContentView_Previews: PreviewProvider {
 
 @MainActor
 class ContentViewModel: ObservableObject {
-    var historyStorage: HistorySearchStorage
+    private(set) var historyStorage: HistorySearchStorage
     
     @Published var selectedForecast: WeatherData? = nil {
         didSet {

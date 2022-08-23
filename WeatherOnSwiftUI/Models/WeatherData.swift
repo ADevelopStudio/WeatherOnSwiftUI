@@ -67,15 +67,21 @@ extension WeatherData {
         case .weatherDescr:
             return self.weather.map({$0.description}).joined(separator: ", ")
         case .temperature:
-            return "\(self.main.temp < 0 ? "" : "+")\(Int(self.main.temp))℃"
+            return self.main.temp.toTemperature
         case .temperatureFillsLike:
-            return "\(self.main.feelsLike < 0 ? "" : "+")\(Int(self.main.feelsLike))℃"
+            return self.main.feelsLike.toTemperature
         case .temperatureMax:
-            return "\(self.main.tempMax < 0 ? "" : "+")\(Int(self.main.tempMax))℃"
+            return self.main.tempMax.toTemperature
         case .temperatureMin:
-            return "\(self.main.tempMin < 0 ? "" : "+")\(Int(self.main.tempMin))℃"
+            return self.main.tempMin.toTemperature
         case .pressure:
             return "\(Int(self.main.pressure)) hPa"
         }
+    }
+}
+
+fileprivate extension Double {
+    var toTemperature: String {
+        [self < 0 ? nil : "+", String(describing: Int(self)), "℃"].compactMap({$0}).joined()
     }
 }

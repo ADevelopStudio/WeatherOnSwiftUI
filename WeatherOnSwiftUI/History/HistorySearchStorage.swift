@@ -8,8 +8,8 @@
 import Foundation
 
 actor HistorySearchStorage: ObservableObject {
-    private let userDefaultsKey: String
     
+    private let userDefaultsKey: String
     private(set) var searchHistory: Array<WeatherData>
     
     init(userDefaultsKey: String = "HistorySearchStorage") {
