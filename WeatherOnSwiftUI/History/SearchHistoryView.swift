@@ -13,11 +13,9 @@ struct SearchHistoryView: View {
     
     var body: some View {
         HStack(spacing: 5) {
-            AsyncImage(url: viewModel.weatherData.getImageUrl()) { image in
-                image.resizable()
-            } placeholder: {
-                ProgressView()
-            }
+            CachedImage(url: viewModel.weatherData.getImageUrl(),
+                        animation: .spring(),
+                        transition: .slide.combined(with: .opacity))
             .frame(width: 40, height: 40)
             
             Text(viewModel.weatherData.name)

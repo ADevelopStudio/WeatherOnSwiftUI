@@ -19,15 +19,13 @@ struct ForecastDetailView: View {
             
             if weatherData.getImageUrl(isLarge: true) != nil {
                 ZStack {
-                    Color.init(white: 0.8)
+                    Color.init(white: 0.9)
                         .frame(width: 100, height: 100)
                         .cornerRadius(50)
                     
-                    AsyncImage(url: weatherData.getImageUrl(isLarge: true)) { image in
-                        image.resizable()
-                    } placeholder: {
-                        ProgressView()
-                    }
+                    CachedImage(url: weatherData.getImageUrl(isLarge: true),
+                                animation: .spring(),
+                                transition: .scale.combined(with: .opacity))
                     .frame(width: 75, height: 75)
                 }
             }

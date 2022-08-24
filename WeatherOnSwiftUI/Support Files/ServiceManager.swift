@@ -42,6 +42,7 @@ struct ServiceManager {
     enum ServiceError: Error, LocalizedError {
         case generalFailure
         case invalidStatus
+        case invalidUrl
         
         public var errorDescription: String? {
             switch self {
@@ -49,6 +50,8 @@ struct ServiceManager {
                 return "Nothing found"
             case .generalFailure:
                 return "Something went wrong"
+            case .invalidUrl:
+                return "Invalid Url"
             }
         }
     }
