@@ -37,14 +37,14 @@ struct CachedImage: View {
                         .aspectRatio(contentMode: .fit)
                         .transition(transition)
                 } else {
-                    Image(systemName: "xmark")
-                                        .symbolVariant(.circle.fill)
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .symbolRenderingMode(.multicolor)
                                         .aspectRatio(contentMode: .fit)
                                         .transition(transition)
                 }
             case .failed:
-                Image(systemName: "xmark")
-                                    .symbolVariant(.circle.fill)
+                Image(systemName: "eye.slash.circle.fill")
+                                    .symbolRenderingMode(.multicolor)
                                     .aspectRatio(contentMode: .fit)
                                     .transition(transition)
             default:

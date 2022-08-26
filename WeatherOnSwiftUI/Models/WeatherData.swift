@@ -75,13 +75,19 @@ extension WeatherData {
         case .temperatureMin:
             return self.main.tempMin.toTemperature
         case .pressure:
-            return "\(Int(self.main.pressure)) hPa"
+            return self.main.pressure.toPressure
         }
     }
 }
 
 fileprivate extension Double {
     var toTemperature: String {
-        [self < 0 ? nil : "+", String(describing: Int(self)), "℃"].compactMap({$0}).joined()
+        let tempLocalisedStr = MeasurementFormatter().string(from: Measurement(value: Double(Int(self)), unit: UnitTemperature.celsius))
+        if !tempLocalisedStr.contains("C") || self < 0 { return tempLocalisedStr }
+        return ["+", tempLocalisedStr].joined()
+    }
+    var toPressure: String {
+        MeasurementFormatter()
+            .string(from: Measurement(value: self, unit: UnitPressure.hectopascals))
     }
 }
