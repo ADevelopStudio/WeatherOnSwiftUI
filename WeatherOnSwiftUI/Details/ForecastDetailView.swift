@@ -33,7 +33,7 @@ struct ForecastDetailView: View {
             Text(weatherData.getData(type: .weatherDescr))
                 .font(.headline)
             
-            List(TypeOfWeatherData.allCases) { typeOfForecastData in
+            List(TypeOfWeatherData.unitsForDetailsView) { typeOfForecastData in
                 HStack(spacing: 5) {
                     Text(typeOfForecastData.title)
                     Spacer()

@@ -9,7 +9,7 @@ import Foundation
 
 
 enum TypeOfWeatherData {
-    static let allCases = [TypeOfWeatherData.temperature, .temperatureFillsLike, .temperatureMin, .temperatureMax, .pressure, .humidity]
+    static let unitsForDetailsView = [TypeOfWeatherData.temperature, .temperatureFillsLike, .temperatureMin, .temperatureMax, .pressure, .humidity]
     case weatherDescr
     case temperature
     case temperatureFillsLike

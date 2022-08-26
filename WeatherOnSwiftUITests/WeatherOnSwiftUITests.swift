@@ -75,10 +75,6 @@ class WeatherOnSwiftUITests: XCTestCase {
     
     func testIfAllGood(with weatherData: WeatherData) {
         XCTAssertNotNil(weatherData)
-        ///testing all the properties
-        TypeOfWeatherData.allCases.forEach {
-            XCTAssertTrue(!weatherData.getData(type: $0).isEmpty)
-        }
     }
     
     func testRepository() async {
@@ -163,5 +159,4 @@ class WeatherOnSwiftUITests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }
