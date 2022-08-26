@@ -41,5 +41,5 @@ extension TypeOfWeatherData {
 }
 
 extension TypeOfWeatherData: Identifiable {
-    var id: Int { TypeOfWeatherData.allCases.firstIndex(of: self) ?? 999 }
+    var id: TypeOfWeatherData { self }
 }
